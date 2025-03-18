@@ -1,56 +1,56 @@
-"use client";
-import React from "react";
-import ActionButton from "./ActionButton";
+'use client';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import ActionButton from './ActionButton';
 
-function QrCodeSection() {
-  const handleCopyUrl = () => {
-    // Implementation for copying URL would go here
-    console.log("Copying URL");
-  };
+function QRCodeSection() {
+  const router = useRouter();
 
-  const handleShare = () => {
-    // Implementation for sharing would go here
-    console.log("Sharing with friends");
-  };
-
-  const handleDownload = () => {
-    // Implementation for downloading would go here
-    console.log("Downloading as Text/Image");
+  const handleDownloadClick = () => {
+    router.push('/travelconfirmation');
   };
 
   return (
-    <section className="p-10 mb-10 text-center bg-gray-50 rounded-xl max-sm:p-6">
-      <h2 className="mb-2 text-xl font-semibold text-black">
+    <section className="p-8 mb-6 bg-white rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+      <h2 className="mb-4 text-lg font-medium text-gray-900">
         Scan this QR Code to download your selected apps
       </h2>
-      <p className="mb-8 text-sm text-gray-500">
+      <p className="mb-6 text-sm text-gray-500">
         Point your camera at the QR code to access your curated app collection
       </p>
 
-      <div className="p-4 mx-auto mt-0 mb-8 bg-white rounded-lg h-[200px] shadow-[0_1px_3px_rgba(0,0,0,0.1)] w-[200px]">
-        <div className="bg-contain bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=')] size-full" />
+      <div className="flex justify-center mb-6">
+        <div className="p-4 bg-white rounded-lg border border-gray-200 h-[200px] w-[200px]">
+          <img
+            src="https://placehold.co/168x168/000000/000000"
+            alt="QR Code"
+            className="w-full h-full"
+          />
+        </div>
       </div>
 
-      <div className="flex flex-col gap-3 mx-auto my-0 max-w-[400px] max-sm:w-full">
+      <div className="flex flex-col gap-3">
         <ActionButton
           icon="ti-copy"
           text="Copy App List URL"
-          onClick={handleCopyUrl}
+          variant="secondary"
+          onClick={() => console.log('Copy URL clicked')}
         />
         <ActionButton
           icon="ti-share"
           text="Share with Friends"
-          onClick={handleShare}
+          variant="secondary"
+          onClick={() => console.log('Share clicked')}
         />
         <ActionButton
           icon="ti-download"
           text="Download as Text/Image"
-          onClick={handleDownload}
           variant="primary"
+          onClick={handleDownloadClick}
         />
       </div>
     </section>
   );
 }
 
-export default QrCodeSection;
+export default QRCodeSection;

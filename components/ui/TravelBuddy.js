@@ -1,19 +1,26 @@
-"use client";
-import React from "react";
-import QrCodeSection from "./QrCodeSection";
-import AppList from "./AppList";
+'use client';
+import React from 'react';
+import QRCodeSection from './QRCodeSection';
+import AppSelection from './AppSelection';
 
 function TravelBuddy() {
   return (
-    <main className="p-5 mx-auto my-0 bg-white max-w-[800px] max-md:max-w-[991px] max-sm:max-w-screen-sm">
-      <header className="mb-10 text-center">
-        <h1 className="mb-2 text-3xl font-semibold text-black">Travel Buddy</h1>
-        <p className="text-base text-gray-500">Your travel apps companion</p>
-      </header>
+    <main className="flex flex-col bg-gray-50 min-h-screen font-['Inter',sans-serif]">
+      <section className="p-6 max-md:p-5 max-sm:p-4">
+        <div className="mx-auto max-w-[800px]">
+          <header>
+            <h1 className="mb-2 text-3xl font-semibold text-gray-900">
+              Travel Buddy
+            </h1>
+            <p className="mb-8 text-base text-gray-500">
+              Your travel apps companion
+            </p>
+          </header>
 
-      <QrCodeSection />
-
-      <AppList />
+          <QRCodeSection />
+          <AppSelection />
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,19 +1,21 @@
-import React from "react";
+'use client';
+import React from 'react';
 
-function ActionButton({ icon, text, onClick, variant = "default" }) {
+function ActionButton({ icon, text, variant = 'secondary', onClick }) {
   const baseClasses =
-    "flex gap-2 justify-center items-center p-3 text-sm font-medium rounded-lg cursor-pointer";
+    'flex justify-center items-center py-2 w-full text-sm rounded-lg';
 
   const variantClasses = {
-    default: "text-black bg-white border border-solid",
-    primary: "text-white bg-blue-600 border-[none]",
+    primary: 'text-white bg-blue-600',
+    secondary: 'text-gray-700 border border-gray-200 border-solid',
   };
 
-  const buttonClasses = `${baseClasses} ${variantClasses[variant]}`;
-
   return (
-    <button className={buttonClasses} onClick={onClick} type="button">
-      <i className={`ti ${icon}`} />
+    <button
+      className={`${baseClasses} ${variantClasses[variant]}`}
+      onClick={onClick}
+    >
+      <i className={`${icon} mr-2`} aria-hidden="true" />
       <span>{text}</span>
     </button>
   );

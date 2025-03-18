@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import FontLoader from "./FontLoader";
-import TravelBuddy from "./TravelBuddy";
+'use client';
+import React from 'react';
+import FontLoader from './FontLoader';
+import TravelBuddy from './TravelBuddy';
 
 function TravelBuddyApp() {
   return (
