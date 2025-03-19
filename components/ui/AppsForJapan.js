@@ -122,7 +122,10 @@ const AppsForJapan = ({ onGenerateQRCode }) => {
 
         <section className="flex flex-col gap-3">
           {filteredApps.map((app) => (
-            <div key={app.id} className="border rounded-lg p-4 shadow-md">
+            <div
+              key={app.id}
+              className="border rounded-lg p-4 shadow-md transition-all duration-300"
+            >
               {/* Header: Checkbox + Dropdown beside Checkbox */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -137,9 +140,7 @@ const AppsForJapan = ({ onGenerateQRCode }) => {
                   {/* App Name */}
                   <div>
                     <h3 className="text-lg font-semibold">{app.name}</h3>
-                    <p className="text-sm text-gray-500">
-                      {app.shortDescription}
-                    </p>
+                    <p className="text-sm text-gray-500">{app.shortDescription}</p>
                   </div>
 
                   {/* Dropdown Arrow (Beside Checkbox) */}
@@ -156,8 +157,12 @@ const AppsForJapan = ({ onGenerateQRCode }) => {
                 </div>
               </div>
 
-              {/* Expanded Section (Detailed Description, Screenshots, and User Reviews) */}
-              {expandedApps[app.id] && (
+              
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedApps[app.id] ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
                 <div className="mt-3 border-t pt-3">
                   <p className="text-gray-600">{app.description}</p>
 
@@ -185,7 +190,7 @@ const AppsForJapan = ({ onGenerateQRCode }) => {
                     </ul>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </section>
