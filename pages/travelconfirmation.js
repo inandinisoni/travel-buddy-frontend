@@ -13,9 +13,9 @@ function TravelConfirmation() {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet"
       />
-      <main className="mx-auto my-0 bg-white max-w-[1200px]">
+      <main className="flex flex-col min-h-screen bg-white">
         <Header />
-        <section className="p-6 bg-gray-50 max-sm:p-4">
+        <section className="flex-grow p-6 bg-gray-50 max-sm:p-4">
           <SuccessMessage />
           <AppDownload />
           <TravelSelections />
