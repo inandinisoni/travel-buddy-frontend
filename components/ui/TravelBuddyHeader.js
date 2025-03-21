@@ -1,7 +1,18 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const TravelBuddyHeader = () => {
+  const router = useRouter();
+
+  const handleLoginClick = () => {
+    router.push('/login');
+  };
+
+  const handleSignUpClick = () => {
+    router.push('/login');
+  };
+
   return (
     <header className="flex justify-between items-center px-6 py-4 bg-white border-b border-gray-200">
       <div className="flex gap-2 items-center">
@@ -40,10 +51,8 @@ const TravelBuddyHeader = () => {
             </svg>
             <span className="text-sm text-gray-600">EN</span>
           </div>
-          <button className="text-sm text-blue-500 cursor-pointer">
-            Login
-          </button>
-          <button className="px-4 py-2 text-white bg-blue-500 rounded cursor-pointer">
+          
+          <button className="px-4 py-2 text-white bg-blue-500 rounded cursor-pointer" onClick={handleSignUpClick}>
             Sign Up
           </button>
         </div>
